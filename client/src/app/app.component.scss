@@ -1,0 +1,16 @@
+// :host {
+//   display: grid;
+//   grid-template-columns:
+//     [full-start] minmax(14rem, auto) [col-start] repeat(
+//       12,
+//       minmax(6.5rem, 12rem)
+//     )
+//     minmax(14rem, auto) [full-end];
+//   grid-template-rows: max-content;
+//   height: 100%;
+//   grid-column-gap: 3rem;
+// }
+
+// .header-wrapper {
+//   grid-column: 2 / 14;
+// }

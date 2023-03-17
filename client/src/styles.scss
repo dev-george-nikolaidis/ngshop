@@ -1,0 +1,209 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans&display=swap");
+
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  /* Colors */
+  --clr-pink-400: #ba4270;
+  --clr-water-white-400: #fbfcfe;
+  --clr-san-blue-400: #36536b;
+  --clr-san-blue-300: #6c8294;
+  --clr-mirage-blue-400: #1b262f;
+  --clr-charm-pink-400: #da6d97;
+
+  // --fs-900: 20rem;
+  --fs-800: 7.2rem;
+  --fs-750: 5.6rem;
+  --fs-700: 4.8rem;
+  --fs-650: 3.2rem;
+  --fs-620: 2.8rem;
+  --fs-600: 2rem;
+  --fs-500: 1.8rem;
+  --fs-400: 1.6rem;
+  --fs-300: 1.4rem;
+  // --fs-200: 1.2rem;
+  // --fs-100: 1.1rem;
+
+  // --fs-200: 1.5rem;
+  --transition: all 0.5s ease-in-out;
+  --box-shadow-400: 0 3px 8px rgba(0, 0, 0, 0.1);
+  --ff-normal: "Public Sans", sans-serif;
+}
+
+/*****************         Resets             **************************/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--ff-normal);
+  font-size: var(--fs-400);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+// This is for react root div element
+body > #root > div {
+  min-height: 100vh;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+}
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*****************         Utility classes             **************************/
+
+// This class hides the elements from the dom , is not like display none that the element removed from the dom tree
+.sr-only {
+  padding: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: react(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/*****************        Colors            **************************/
+
+/*****************        Typography            **************************/
+
+/*****************      Components            **************************/
+
+.btn {
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  color: #fff;
+  font-weight: 700;
+}
+
+.btn:hover {
+  background-color: #da6d97;
+}
+
+/*****************      Media queries            **************************/
+
+// / 760px 1024px
+@media (max-width: 64em) {
+}
+// 481px -  1024px
+@media (min-width: 30.1em) and (max-width: 64em) {
+  :root {
+    // --fs-900-t: 17.5rem;
+    --fs-800-t: 4.8rem;
+    // --fs-700-t: 4.rem;
+    // --fs-600-t: 1.8rem;
+    // --fs-500-t: 1.8rem;
+    // --fs-200-t: 1.3rem;
+  }
+}
+
+// 375 -480px
+@media (max-width: 30em) {
+  :root {
+    // Smartphone
+    --fs-900-s: 3.6rem;
+    --fs-800-s: 3.2rem;
+    --fs-700-s: 2.4rem;
+    --fs-600-s: 1.4rem;
+    --fs-400-s: 1.2rem;
+    // --fs-200-s: 1rem;
+  }
+}
+
+// 481px - 750px
+@media (min-width: 30.1em) and (max-width: 46.875em) {
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+
+    transform: translateY(-200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
