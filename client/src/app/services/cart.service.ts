@@ -23,6 +23,10 @@ export class CartService {
     this._setCartToLocalStorage();
   }
 
+  getCart(): Cart {
+    return this.cartSubject.value;
+  }
+
   removeItemFromCart(foodId: string): void {
     this.cart.items = this.cart.items.filter((item) => item.food.id != foodId);
     this._setCartToLocalStorage();

@@ -15,7 +15,7 @@ export class TextInputComponent implements OnInit {
   label!: string;
   @Input()
   type: 'text' | 'password' | 'email' = 'text';
-
+  @Input() customPlaceholder: any = '';
   get formControl() {
     return this.control as FormControl;
   }
