@@ -2,7 +2,7 @@ import mongoose, { model } from "mongoose";
 import { IFood } from "./food.interfaces";
 const { Schema } = mongoose;
 
-const FoodSchema = new Schema<IFood>(
+export const FoodSchema = new Schema<IFood>(
 	{
 		name: { type: String, required: true },
 		price: { type: Number, required: true },

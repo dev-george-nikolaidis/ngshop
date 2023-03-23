@@ -1,4 +1,4 @@
-// :host {
+/* // :host {
 //   display: grid;
 //   grid-template-columns:
 //     [full-start] minmax(14rem, auto) [col-start] repeat(
@@ -13,4 +13,4 @@
 
 // .header-wrapper {
 //   grid-column: 2 / 14;
-// }
+// } */

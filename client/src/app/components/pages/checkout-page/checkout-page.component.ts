@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
+import { OrderService } from 'src/app/services/order.service';
 import { UserService } from 'src/app/services/user.service';
 import { Order } from 'src/app/shared/models/Order';
 
 @Component({
   selector: 'app-checkout-page',
   templateUrl: './checkout-page.component.html',
-  styleUrls: ['./checkout-page.component.scss'],
+  styleUrls: ['./checkout-page.component.css'],
 })
 export class CheckoutPageComponent implements OnInit {
   order: Order = new Order();
@@ -16,7 +18,9 @@ export class CheckoutPageComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private formBuilder: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private orderService: OrderService,
+    private router: Router
   ) {
     const cart = cartService.getCart();
     this.order.items = cart.items;
@@ -43,6 +47,11 @@ export class CheckoutPageComponent implements OnInit {
     this.order.name = this.fc.name.value;
     this.order.address = this.fc.address.value;
 
-    console.log(this.order);
+    this.orderService.createOrder(this.order).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/payment');
+      },
+      error: (errorResponse) => {},
+    });
   }
 }

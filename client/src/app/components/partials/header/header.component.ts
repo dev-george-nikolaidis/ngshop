@@ -1,3 +1,4 @@
+import { compileDeclareNgModuleFromMetadata } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
 import { UserService } from 'src/app/services/user.service';
@@ -6,7 +7,7 @@ import { User } from 'src/app/shared/models/User';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
+  styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
   cartQuantity = 0;
@@ -22,6 +23,7 @@ export class HeaderComponent {
   }
 
   logout() {
+    console.log('logging out...');
     this.userService.logout();
   }
 

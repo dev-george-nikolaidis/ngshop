@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Public+Sans&display=swap");
+/* @import "../node_modules/leaflet/dist/leaflet.css"; */
 
 html {
   font-size: 62.5%;
 }
 
 :root {
-  /* Colors */
   --clr-pink-400: #ba4270;
   --clr-water-white-400: #fbfcfe;
   --clr-san-blue-400: #36536b;
@@ -14,7 +14,7 @@ html {
   --clr-mirage-blue-400: #1b262f;
   --clr-charm-pink-400: #da6d97;
 
-  // --fs-900: 20rem;
+  --fs-900: 20rem;
   --fs-800: 7.2rem;
   --fs-750: 5.6rem;
   --fs-700: 4.8rem;
@@ -24,10 +24,10 @@ html {
   --fs-500: 1.8rem;
   --fs-400: 1.6rem;
   --fs-300: 1.4rem;
-  // --fs-200: 1.2rem;
-  // --fs-100: 1.1rem;
+  --fs-200: 1.2rem;
+  --fs-100: 1.1rem;
 
-  // --fs-200: 1.5rem;
+  --fs-200: 1.5rem;
   --transition: all 0.5s ease-in-out;
   --box-shadow-400: 0 3px 8px rgba(0, 0, 0, 0.1);
   --ff-normal: "Public Sans", sans-serif;
@@ -50,7 +50,7 @@ body {
   line-height: 1.5;
 }
 
-// This is for react root div element
+/* This is for react root div element */
 body > #root > div {
   min-height: 100vh;
 }
@@ -128,7 +128,7 @@ select {
 
 /*****************         Utility classes             **************************/
 
-// This class hides the elements from the dom , is not like display none that the element removed from the dom tree
+/* This class hides the elements from the dom , is not like display none that the element removed from the dom tree */
 .sr-only {
   padding: absolute;
   width: 1px;
@@ -161,35 +161,35 @@ select {
 
 /*****************      Media queries            **************************/
 
-// / 760px 1024px
+/* 760px 1024px */
 @media (max-width: 64em) {
 }
-// 481px -  1024px
+/* 481px -  1024px */
 @media (min-width: 30.1em) and (max-width: 64em) {
   :root {
-    // --fs-900-t: 17.5rem;
+    --fs-900-t: 17.5rem;
     --fs-800-t: 4.8rem;
-    // --fs-700-t: 4.rem;
-    // --fs-600-t: 1.8rem;
-    // --fs-500-t: 1.8rem;
-    // --fs-200-t: 1.3rem;
+    --fs-700-t: 4rem;
+    --fs-600-t: 1.8rem;
+    --fs-500-t: 1.8rem;
+    --fs-200-t: 1.3rem;
   }
 }
 
-// 375 -480px
+/* 375 -480px */
 @media (max-width: 30em) {
   :root {
-    // Smartphone
+    /* Smartphone */
     --fs-900-s: 3.6rem;
     --fs-800-s: 3.2rem;
     --fs-700-s: 2.4rem;
     --fs-600-s: 1.4rem;
     --fs-400-s: 1.2rem;
-    // --fs-200-s: 1rem;
+    --fs-200-s: 1rem;
   }
 }
 
-// 481px - 750px
+/* 481px - 750px */
 @media (min-width: 30.1em) and (max-width: 46.875em) {
 }
 
@@ -205,5 +205,11 @@ select {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

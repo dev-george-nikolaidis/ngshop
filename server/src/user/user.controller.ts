@@ -7,11 +7,17 @@ import { IUser } from "./user.interfaces";
 
 export const loginUser = async (req: Request, res: Response) => {
 	const { email, password } = req.body;
-	const user = await UserModel.findOne({ email, password });
-
+	const user = await UserModel.findOne({ email });
 	try {
-		if (user) {
-			res.status(200).json(generateTokenResponse(user));
+		if (user && (await bcrypt.compare(password, user.password))) {
+			res.json({
+				id: user.id,
+				email: user.email,
+				name: user.name,
+				address: user.address,
+				isAdmin: user.isAdmin,
+				token: generateToken(user.id),
+			});
 		} else {
 			res.status(400).send("User name or password is not valid");
 		}
@@ -19,9 +25,9 @@ export const loginUser = async (req: Request, res: Response) => {
 		res.status(400).send(error.message);
 	}
 };
+
 export const registerUser = async (req: Request, res: Response) => {
 	const { name, email, password, address } = req.body;
-	console.log(email);
 	try {
 		const user = await UserModel.findOne({ email });
 		if (user) {
@@ -40,27 +46,20 @@ export const registerUser = async (req: Request, res: Response) => {
 			};
 
 			const storedSelf = await UserModel.create(self);
-			res.send(generateTokenResponse(storedSelf));
+			res.send(generateToken(storedSelf.id));
 		}
 	} catch (error: any) {
 		res.status(400).send(error.message);
 	}
 };
 
-const generateTokenResponse = (user: any) => {
-	const token = jwt.sign(
-		{
-			email: user.email,
-			isAdmin: user.isAdmin,
-		},
-		process.env.JWT_SECRET as string,
-		{
-			expiresIn: "30d",
-		}
-	);
-
-	user.token = token;
-	return user;
+// Generate JWT
+const generateToken = (id: any) => {
+	const jwtSecret = process.env.JWT_SECRET!;
+	const jwtExpTime = process.env.JWT_TOKEN_EXPIRATION || 30;
+	return jwt.sign({ id }, jwtSecret, {
+		expiresIn: `${jwtExpTime}d`,
+	});
 };
 
 export const seedUsers = async (req: Request, res: Response) => {

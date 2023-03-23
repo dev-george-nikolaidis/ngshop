@@ -8,7 +8,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-food-page',
   templateUrl: './food-page.component.html',
-  styleUrls: ['./food-page.component.scss'],
+  styleUrls: ['./food-page.component.css'],
 })
 export class FoodPageComponent {
   food!: Food;

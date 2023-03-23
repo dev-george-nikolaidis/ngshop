@@ -17,7 +17,7 @@ const VALIDATORS_MESSAGES: any = {
 @Component({
   selector: 'app-input-validation',
   templateUrl: './input-validation.component.html',
-  styleUrls: ['./input-validation.component.scss'],
+  styleUrls: ['./input-validation.component.css'],
 })
 export class InputValidationComponent implements OnChanges, OnInit {
   @Input() control!: AbstractControl;
